@@ -80,3 +80,4 @@ def Find():
 
 
 Find()
+print("Игра окончена")
