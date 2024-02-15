@@ -1,13 +1,8 @@
 def For(i, attempts, iterator, n, start):
-    last_number = 0
+    import random
     for j in range(i, attempts):
-        import random
         random_number = random.randint(start, n)
-        last_number = random_number
-        if last_number == random_number:
-            random_number = random.randint(start, n)
-            last_number = random_number
-        print("Это", last_number, "?")
+        print("Это", random_number, "?")
         answer = input()
         iterator = iterator + 1
         if answer == "y" or answer == "Y":
@@ -30,11 +25,25 @@ def Find():
             answer = input()
             iterator = iterator + 1
             if answer == "y" or answer == "Y":
-                For(i, attempts, iterator, n=25, start=0)
-                return
+                print("Число <", 15, "(Y - да, N - нет):")
+                answer = input()
+                iterator = iterator + 1
+                if answer == "y" or answer == "Y":
+                    For(i, attempts, iterator, n=15, start=0)
+                    return
+                else:
+                    For(i, attempts, iterator, n=25, start=15)
+                    return
             else:
-                For(i, attempts, iterator, n=50, start=25)
-                return
+                print("Число <", 35, "(Y - да, N - нет):")
+                answer = input()
+                iterator = iterator + 1
+                if answer == "y" or answer == "Y":
+                    For(i, attempts, iterator, n=35, start=25)
+                    return
+                else:
+                    For(i, attempts, iterator, n=50, start=35)
+                    return
         else:
             print("Число <", 75, "(Y - да, N - нет):")
             answer = input()
@@ -43,8 +52,15 @@ def Find():
                 For(i, attempts, iterator, n=75, start=50)
                 return
             else:
-                For(i, attempts, iterator, n=100, start=75)
-                return
+                print("Число <", 90, "(Y - да, N - нет):")
+                answer = input()
+                iterator = iterator + 1
+                if answer == "y" or answer == "Y":
+                    For(i, attempts, iterator, n=90, start=75)
+                    return
+                else:
+                    For(i, attempts, iterator, n=100, start=90)
+                    return
     if iterator == attempts:
         print("Попытки кончились")
         return
